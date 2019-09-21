@@ -19,8 +19,8 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "account")
+public class Account {
 	@Id
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
