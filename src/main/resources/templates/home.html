@@ -4,21 +4,23 @@
 <head>
 <title>Books - Home</title>
 <link rel="stylesheet" href="/css/home.css" />
+<link rel="stylesheet" href="/css/books.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
 <body>
-	<h1>Sumset Books</h1>
-	<hr />
 	<div class="container" id="container">
-		<form action="#">
+		<br />
+		<form id="searchForm">
 			<h1>Search Users</h1>
-			<span>please insert your term of search</span> 
-			<input type="text" placeholder="Enter one user" />
-			<button>Search</button>
+			<span>please insert your term of search</span> <input type="text"
+				placeholder="Enter one user" name="term"/>
+			<button type="submit">Search</button>
 		</form>
-		<ul>
-			<li> <p>Term 1</p> </li>
-			<li> <p>Term 1</p> </li>
-		</ul>
+		<div id="book-products"></div>
 	</div>
+	<script type="text/javascript" src="/js/home.js"></script>
 </body>
 </html>

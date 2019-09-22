@@ -17,6 +17,6 @@ public class BookDTO {
 	private String code;
 	private String zone;
 	private String category;
-	private String min_age;
-	private String max_age;
+	private Integer min_age;
+	private Integer max_age;
 }

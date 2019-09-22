@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.sumset.books.model.Copy;
-import com.sumset.books.repository.dto.BookDTO;
 
 /**
  * @author juandav
@@ -19,7 +18,7 @@ import com.sumset.books.repository.dto.BookDTO;
 public interface CopyRepository extends JpaRepository<Copy, Long> {
 	       
 	@Query("" +
-		"SELECT " + 
+		"SELECT distinct " + 
 			"b.title, " +
 			"b.description, " +
 			"b.photo, " +
@@ -27,12 +26,15 @@ public interface CopyRepository extends JpaRepository<Copy, Long> {
 			"z.name AS zone, " +
 			"ct.name AS category, " +
 			"ct.min_age, " +
-			"ct.max_age " +
+			"ct.max_age, " +
+			"l.date_of_entry, " +
+			"l.date_of_out " +
 		"FROM Copy c " + 
 		"LEFT JOIN c.books b " + 
 		"LEFT JOIN b.zones z " + 
-		"LEFT JOIN b.categories ct " + 
+		"LEFT JOIN b.categories ct " +
+		"LEFT JOIN c.loans l " +
 		"WHERE b.title =:bookName "
 	)
-	public List<BookDTO> findBooks(@Param("bookName") String bookName);
+	public List<?> findBooks(@Param("bookName") String bookName);
 }

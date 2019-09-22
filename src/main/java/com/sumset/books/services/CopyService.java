@@ -8,7 +8,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.sumset.books.repository.CopyRepository;
-import com.sumset.books.repository.dto.BookDTO;
 
 /**
  * @author juadnav
@@ -22,7 +21,7 @@ public class CopyService {
 		this.copyRepository = copyRepository;
 	}
 	
-	public List<BookDTO> findAllBooks(String bookName){
+	public List<?> findAllBooks(String bookName){
 		return this.copyRepository.findBooks(bookName);
 	}
 }
