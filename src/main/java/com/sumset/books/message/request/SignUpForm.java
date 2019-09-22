@@ -1,9 +1,16 @@
+/**
+ * Module dependencies
+ */
 package com.sumset.books.message.request;
 
 import java.util.Set;
 
 import javax.validation.constraints.*;
 
+/**
+ * @author juandav
+ *
+ */
 public class SignUpForm {
 	@NotBlank
 	@Size(min = 3, max = 50)

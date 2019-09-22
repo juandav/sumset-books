@@ -1,5 +1,12 @@
+/**
+ * Module dependencies
+ */
 package com.sumset.books.message.response;
 
+/**
+ * @author juandav
+ *
+ */
 public class JwtResponse {
 	private String token;
 	private String type = "Bearer";

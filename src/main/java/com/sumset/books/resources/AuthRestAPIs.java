@@ -1,4 +1,7 @@
-package com.sumset.books.controller;
+/**
+ * Module dependencies
+ */
+package com.sumset.books.resources;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,6 +32,10 @@ import com.sumset.books.repository.RoleRepository;
 import com.sumset.books.repository.UserRepository;
 import com.sumset.books.security.jwt.JwtProvider;
 
+/**
+ * @author juandav
+ *
+ */
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")

@@ -1,3 +1,6 @@
+/**
+ * Module dependencies
+ */
 package com.sumset.books.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,10 @@ import com.sumset.books.security.jwt.JwtAuthEntryPoint;
 import com.sumset.books.security.jwt.JwtAuthTokenFilter;
 import com.sumset.books.security.services.UserDetailsServiceImpl;
 
+/**
+ * @author juandav
+ *
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)

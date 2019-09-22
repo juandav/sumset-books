@@ -1,5 +1,12 @@
+/**
+ * Module dependencies
+ */
 package com.sumset.books.model;
 
+/**
+ * @author juandav
+ *
+ */
 import java.util.HashSet;
 import java.util.Set;
 

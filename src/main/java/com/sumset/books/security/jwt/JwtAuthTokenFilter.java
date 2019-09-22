@@ -1,3 +1,6 @@
+/**
+ * Module dependencies
+ */
 package com.sumset.books.security.jwt;
 
 import java.io.IOException;
@@ -18,6 +21,10 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.sumset.books.security.services.UserDetailsServiceImpl;
 
+/**
+ * @author juandav
+ *
+ */
 public class JwtAuthTokenFilter extends OncePerRequestFilter {
 
 	@Autowired

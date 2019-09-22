@@ -1,8 +1,15 @@
+/**
+ * Module dependencies
+ */
 package com.sumset.books.message.request;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+/**
+ * @author juandav
+ *
+ */
 public class LoginForm {
 	@NotBlank
 	@Size(min = 3, max = 60)

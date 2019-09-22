@@ -1,3 +1,6 @@
+/**
+ * Module dependencies
+ */
 package com.sumset.books.security.services;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -12,6 +15,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/**
+ * @author juandav
+ *
+ */
 public class UserPrinciple implements UserDetails {
 	private static final long serialVersionUID = 1L;
 

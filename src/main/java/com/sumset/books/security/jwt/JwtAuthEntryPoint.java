@@ -1,3 +1,6 @@
+/**
+ * Module dependencies
+ */
 package com.sumset.books.security.jwt;
 
 import java.io.IOException;
@@ -12,6 +15,10 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author juandav
+ *
+ */
 @Component
 public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
 

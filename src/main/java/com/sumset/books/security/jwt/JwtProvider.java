@@ -1,3 +1,6 @@
+/**
+ * Module dependencies
+ */
 package com.sumset.books.security.jwt;
 
 import io.jsonwebtoken.*;
@@ -11,6 +14,10 @@ import com.sumset.books.security.services.UserPrinciple;
 
 import java.util.Date;
 
+/**
+ * @author juandav
+ *
+ */
 @Component
 public class JwtProvider {
 

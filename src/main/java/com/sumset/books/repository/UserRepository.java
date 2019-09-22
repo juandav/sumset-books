@@ -1,3 +1,6 @@
+/**
+ * Module dependencies
+ */
 package com.sumset.books.repository;
 
 import java.util.Optional;
@@ -7,6 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import com.sumset.books.model.User;
 
+/**
+ * @author juandav
+ *
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 	Optional<User> findByUsername(String username);
