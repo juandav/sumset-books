@@ -60,11 +60,10 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!-- Primeface -->
+		<!-- Thymeleaf -->
 		<dependency>
-		    <groupId>org.primefaces</groupId>
-		    <artifactId>primefaces</artifactId>
-		    <version>7.0</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 	</dependencies>
 
