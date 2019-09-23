@@ -1,12 +1,65 @@
 const endpointBooks = "/api/books";
+const token = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqdWFuZGF2IiwiaWF0IjoxNTY5MTg0MDY0LCJleHAiOjE1NjkyNzA0NjR9.tG2_wHIW7wOCYSImv54LAYHnVJCIcWcgqphHKGa8QeJQhU3WPr7DUIi-ydZwHBogPIFDoB5RtIqX_3LqRc7EEw';
 const $searchForm = document.getElementById('searchForm');
+
+function betweenDatesByDays(majorDate, minorDate) {
+	const difference = new Date(majorDate) - new Date(minorDate);
+	return Math.round(difference / (1000*60*60*24));
+}
+
+function openReport() {
+	
+	const totalLoansPromise = fetch(endpointBooks + '/' + 'totalLoans', {
+        method: 'POST',
+        headers: {
+            'Authorization': token
+        }
+    })
+    .then(response => response.json());
+	
+	const booksByZonePromise = fetch(endpointBooks + '/' +  'booksByZone', {
+        method: 'POST',
+        headers: {
+            'Authorization': token
+        }
+    })
+    .then(response => response.json());
+	
+	Promise.all([totalLoansPromise, booksByZonePromise])
+		.then(result => {
+			const totalLoansResult = result[0];
+			const bookByZoneResult = result[1];
+			
+			const zones = bookByZoneResult.map(item => `<span><b>Zona:</b> ${item[0]}, => ${item[1]} <b>Libros</b></span><br/>`);
+			const zonesReduce = zones.reduce((accumulator, currentValue) => accumulator + currentValue);
+    		
+			
+			Swal.fire({
+			  title: '<strong>Report <u>Sumset - books</u></strong>',
+			  type: 'info',
+			  html:
+			    'total books by <b>zone</b> and <b>borrowed</b>' +
+			    `<p><b>Total de prestamos: </b> ${totalLoansResult}</p>` +
+			    `<div>${zonesReduce}</div>`,
+			  showCloseButton: true,
+			  showCancelButton: true,
+			  focusConfirm: false,
+			  confirmButtonText:
+			    '<i class="fa fa-thumbs-up"></i> Great!',
+			  confirmButtonAriaLabel: 'Thumbs up, great!',
+			  cancelButtonText:
+			    '<i class="fa fa-thumbs-down"></i>',
+			  cancelButtonAriaLabel: 'Thumbs down'
+			})
+		})
+}
 
 function loanOpen() {
 	Swal.fire(
-			  'Good job!',
-			  'You clicked the button!',
-			  'success'
-			)
+	  'Good job!',
+	  'You clicked the button!',
+	  'success'
+	)
 }
 
 $searchForm.onsubmit = function(e, values) {
@@ -16,7 +69,7 @@ $searchForm.onsubmit = function(e, values) {
 	fetch(endpointBooks + '/' +  searchTerm, {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqdWFuZGF2IiwiaWF0IjoxNTY5MTg0MDY0LCJleHAiOjE1NjkyNzA0NjR9.tG2_wHIW7wOCYSImv54LAYHnVJCIcWcgqphHKGa8QeJQhU3WPr7DUIi-ydZwHBogPIFDoB5RtIqX_3LqRc7EEw'
+            'Authorization': token
         }
     })
     .then(response => response.json())

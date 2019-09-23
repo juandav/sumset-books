@@ -11,13 +11,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sumset.books.services.CopyService;
 
 /**
- * @author juadnav
+ * @author juandav
  *
  */
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -35,5 +36,17 @@ public class BookResource {
 		} else {
 			return ResponseEntity.ok(books);
 		}
+	}
+	
+	@PostMapping("/totalLoans")
+	public ResponseEntity<Object> totalLoans() {
+		Object totalLoans = this.copyService.getTotalLoanBooks();
+		return ResponseEntity.ok(totalLoans);
+	}
+	
+	@PostMapping("/booksByZone")
+	public ResponseEntity<List<?>> totalBooksByZone() {
+		List<?> totalBooksByZone = this.copyService.getTotalBooksByZone();
+		return ResponseEntity.ok(totalBooksByZone);
 	}
 }

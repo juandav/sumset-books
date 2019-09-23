@@ -37,4 +37,20 @@ public interface CopyRepository extends JpaRepository<Copy, Long> {
 		"WHERE b.title =:bookName "
 	)
 	public List<?> findBooks(@Param("bookName") String bookName);
+	
+	@Query(
+		value = "SELECT " + 
+				"  z.name, " + 
+				"  (SELECT " + 
+				"    COUNT(*) " + 
+				"  FROM public.books b " + 
+				"  INNER JOIN public.copies c " + 
+				"    ON c.book_id = b.id " + 
+				"  WHERE b.zone_id = z.id " + 
+				"  GROUP BY b.id) " + 
+				"  AS cantidad " + 
+				"FROM public.zones z", 
+		nativeQuery = true
+	)
+	public List<?> getTotalBooksByZone();
 }
