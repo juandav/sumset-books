@@ -3,7 +3,7 @@ const endpointBooks = "/api/books";
 const token = 'Bearer ' +  tokenSession;
 const $searchForm = document.getElementById('searchForm');
 
-if(!tokenSession) {
+if(!tokenSession && tokenSession === "undefined") {
 	window.location.replace("/app/login");
 }
 
