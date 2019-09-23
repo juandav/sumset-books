@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -45,4 +47,16 @@ public class LoanResource {
 		}
 		return new ResponseEntity<>(this.loanService.update(loan), HttpStatus.OK);
 	}
+	
+	@PostMapping
+	public ResponseEntity<Loan> createLoan(@RequestBody LoanDTO loanDto) {
+		Loan loan = new Loan();
+		loan.setDate_of_entry(loanDto.getDate_of_entry());
+		loan.setDate_of_out(loanDto.getDate_of_out());
+		loan.setUsers(loanDto.getUsers());
+		loan.setCopies(loanDto.getCopies());
+		return new ResponseEntity<>(this.loanService.create(loan), HttpStatus.CREATED);
+	}
+	
+	
 }

@@ -13,6 +13,10 @@ public class LoanService {
 		this.loanRepository = loanRepository;
 	}
 	
+	public Loan create(Loan loan) {
+		return this.loanRepository.save(loan);
+	}
+	
 	public Loan update(Loan loan) {
 		return this.loanRepository.save(loan);
 	}
