@@ -21,4 +21,6 @@ public interface LoanRepository extends JpaRepository<Loan, Long> {
 		"GROUP BY t.id "
 	)
 	public Object getTotalLoanBooks();
+	
+	public Loan findById(long id);
 }
