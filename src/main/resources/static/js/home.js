@@ -87,7 +87,7 @@ $searchForm.onsubmit = function(e, values) {
 		            <hr class="product__divider" />
 		            <p class="product__description">${item[1]}</p>
 		            
-		            <button onClick="loanOpen()">${item[8]? "Prestar": "Regresar"}</button>
+		            <button onClick="loanOpen()">${!item[8]? "Prestar": "Regresar"}</button>
 		          </div>
         		</div>        	
         	`);

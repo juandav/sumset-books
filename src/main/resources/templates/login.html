@@ -4,27 +4,32 @@
 <head>
 <title>Books - Login</title>
 <link rel="stylesheet" href="/css/login.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
 <body>
 	<h1>Sumset Books</h1>
 	<hr />
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">
-			<form action="#">
+			<form id="signupForm">
 				<h1>Create Account</h1>
-				<span>use your email for registration</span> <input type="text"
-					placeholder="Name" /> <input type="email" placeholder="Email" />
-				<input type="password" placeholder="Password" />
-				<button>Sign Up</button>
+				<span>please type all fields for registration</span> 
+				<input type="text" placeholder="Name" name="name" /> 
+				<input type="number" placeholder="Age" name="age"/>
+				<input type="email" placeholder="Email" name="email"/>
+				<input type="text" placeholder="Username" name="username"/>
+				<input type="password" placeholder="Password" name="password" />
+				<button type="submit">Sign Up</button>
 			</form>
 		</div>
 		<div class="form-container sign-in-container">
-			<form action="#">
+			<form id="signinForm">
 				<h1>Sign in</h1>
-				<span>Use your account</span> <input type="email"
-					placeholder="Email" /> <input type="password"
-					placeholder="Password" /> <a href="#">Forgot your password?</a>
-				<button>Sign In</button>
+				<span>Use your account</span> 
+				<input type="text" placeholder="Username" name="username"/> 
+				<input type="password" placeholder="Password" name="password"/> 
+				<button type="submit">Sign In</button>
 			</form>
 		</div>
 		<div class="overlay-container">
