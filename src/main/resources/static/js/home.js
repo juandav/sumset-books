@@ -33,7 +33,6 @@ function openReport() {
 			const zones = bookByZoneResult.map(item => `<span><b>Zona:</b> ${item[0]}, => ${item[1]} <b>Libros</b></span><br/>`);
 			const zonesReduce = zones.reduce((accumulator, currentValue) => accumulator + currentValue);
     		
-			
 			Swal.fire({
 			  title: '<strong>Report <u>Sumset - books</u></strong>',
 			  type: 'info',
@@ -83,7 +82,7 @@ $searchForm.onsubmit = function(e, values) {
 		          <div class="product__content">
 		            <span class="product__name"><b>${item[0]} - ${item[3]},</b> ------ <b>Estado:</b> ${item[8]? "Prestado": "Disponible"}</span>
 		            <br />
-		            <span class="product__price">${item[5]} - ${item[4]}</span>
+		            <span class="product__price">${item[5]} - ${item[4]}, prestado: ${item[8] ? betweenDatesByDays(new Date(), new Date(item[8])) + ' Dias(0 = primer dia)': 'Libre'} </span>
 		            <hr class="product__divider" />
 		            <p class="product__description">${item[1]}</p>
 		            
