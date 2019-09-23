@@ -1,6 +1,11 @@
+const tokenSession = sessionStorage.getItem('token');
 const endpointBooks = "/api/books";
-const token = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqdWFuZGF2IiwiaWF0IjoxNTY5MTg0MDY0LCJleHAiOjE1NjkyNzA0NjR9.tG2_wHIW7wOCYSImv54LAYHnVJCIcWcgqphHKGa8QeJQhU3WPr7DUIi-ydZwHBogPIFDoB5RtIqX_3LqRc7EEw';
+const token = 'Bearer ' +  tokenSession;
 const $searchForm = document.getElementById('searchForm');
+
+if(!tokenSession) {
+	window.location.replace("/app/login");
+}
 
 function betweenDatesByDays(majorDate, minorDate) {
 	const difference = new Date(majorDate) - new Date(minorDate);

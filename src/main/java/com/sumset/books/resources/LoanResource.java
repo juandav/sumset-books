@@ -57,6 +57,4 @@ public class LoanResource {
 		loan.setCopies(loanDto.getCopies());
 		return new ResponseEntity<>(this.loanService.create(loan), HttpStatus.CREATED);
 	}
-	
-	
 }
